@@ -1,0 +1,38 @@
+.popper {
+  visibility: hidden;
+  background-color: #5e6cab;
+  padding: 10px;
+  max-width: 260px;
+  color: #fff;
+  font-weight: 500;
+
+  .arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    &:after {
+      content: " ";
+      position: absolute;
+      top: -90px;
+      left: -10px;
+      transform: rotate(45deg);
+      width: 10px;
+      height: 10px;
+      border: 10px solid transparent; 
+      border-top: 10px solid #5e6cab; 
+      border-right: 10px solid #5e6cab;
+    }
+  }
+  &[data-popper-placement^="top"] > .arrow {
+    bottom: -30px;
+    :after {
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+.popper[data-show=true] {
+  visibility: visible;  
+}
+.icon {
+  margin-left: 5px;
+}

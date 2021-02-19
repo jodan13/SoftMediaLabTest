@@ -1,0 +1,24 @@
+.card {
+  background-color: #fbf3dc;
+  width: 305px;
+}
+form {
+  width: 305px;
+  .personalIncomeTax {
+    padding-left: 1.5em;
+    &>span{
+      margin-right: .5em;
+    }
+  }
+  .form-control {
+    max-width: 200px;
+  }
+  .salary {
+    padding-left: 1.5em;
+    &>span{
+      display: flex;
+      align-items: center;
+      margin-left: 0.5em;
+    }
+  }
+}
