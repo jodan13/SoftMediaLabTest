@@ -4,7 +4,7 @@ test REACT from  [softmedialab](https://softmedialab.com/).
 
 Implement a control based on a layout
 **react**, **typescript**, **sass**, **bootstrap**, **redux-form**
-perfect pixel is not required, but the result should be very similar to the ![image] (https://jodan13.github.io/softmedialabtest/static/media/test.jpg)
+perfect pixel is not required, but the result should be very similar to the image (https://jodan13.github.io/softmedialabtest/static/media/test.jpg)
 
 **demo can be viewed [here](https://jodan13.github.io/softmedialabtest/).**
 
