@@ -8,6 +8,7 @@ form {
     padding-left: 1.5em;
     &>span{
       margin-right: .5em;
+      cursor: pointer;
     }
   }
   .form-control {
@@ -20,5 +21,8 @@ form {
       align-items: center;
       margin-left: 0.5em;
     }
+  }
+  .form-check-label, .form-check-input {
+    cursor: pointer;
   }
 }

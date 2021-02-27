@@ -43,6 +43,7 @@ const Form: React.FC<Props & InjectedFormProps<FormData, Props>> = (
     salaryEmployee: "0",
     salary: "0",
   });
+  const [period, setPeriod] = useState('в месяц')
 
   useEffect(() => {
     const amount = Number(salary.replace(/ /g, ""));
@@ -67,19 +68,18 @@ const Form: React.FC<Props & InjectedFormProps<FormData, Props>> = (
 
   useEffect(() => {
     switch (paymentType) {
-      case "monthly salary":
-        change("salary", "80000");
-        break;
       case "minimal salary":
-        change("salary", "30000");
+        change("salary", "12 792");
+        setPeriod('в месяц')
         break;
       case "payment per day":
-        change("salary", "4000");
+        setPeriod('в день')
         break;
       case "payment per hour":
-        change("salary", "500");
+        setPeriod('в час')
         break;
       default:
+        setPeriod('в месяц')
         break;
     }
   }, [paymentType, change]);
@@ -140,7 +140,7 @@ const Form: React.FC<Props & InjectedFormProps<FormData, Props>> = (
                 </label>
               </div>
               <div className="d-flex personalIncomeTax">
-                <span className={personalIncomeTax ? "text-muted" : ""}>
+                <span className={personalIncomeTax ? "text-muted" : ""} onClick={()=>change("personalIncomeTax", !personalIncomeTax)}>
                   Указать с НДФЛ
                 </span>
                 <div className="form-check form-switch mb-3">
@@ -163,9 +163,9 @@ const Form: React.FC<Props & InjectedFormProps<FormData, Props>> = (
                   name="salary"
                   className="form-control"
                   component={"input"}
-                  onChange={() => console.log("onChange", props)}
+                  onChange={(e: { target: { value: any; }; }) => change("salary", e.target.value)}
                 />
-                <span className="">&#8381; в день</span>
+                <span className="">&#8381; {period}</span>
               </div>
             </form>
             {paymentType === "monthly salary" && (
@@ -179,7 +179,7 @@ const Form: React.FC<Props & InjectedFormProps<FormData, Props>> = (
                     <b>{value.salaryIncomeTax} &#8381;</b> НДФЛ, 13% от оклада
                   </p>
                   <p className="card-text">
-                    <b>{value.salary} &#8381;</b> за сотрудника от оклада
+                    <b>{value.salary} &#8381;</b> за сотрудника в месяц
                   </p>
                 </div>
               </div>
